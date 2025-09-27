@@ -1,0 +1,9 @@
+[project]
+name = "goodreads-user-scraper"
+version = "0.1.0"
+description = "Scrape a users profile page from goodreads into a csv file for import"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.5",
+]
