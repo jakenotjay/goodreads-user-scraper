@@ -194,10 +194,11 @@ class TestBookRecord:
 
         book2 = BookRecord(title="Test", author="Author", date_read="2023/01/01")
         assert book2.date_read == "2023/01/01"
-
+        
         # Invalid date format should return None
-        book3 = BookRecord(title="Test", author="Author", date_added="invalid-date")
-        assert book3.date_added is None
+        book4 = BookRecord(title="Test", author="Author", date_added="invalid-date")
+        assert book4.date_added is None
+        
 
     def test_csv_conversion(self):
         """Test CSV conversion methods."""
@@ -205,6 +206,8 @@ class TestBookRecord:
             title="Test Book",
             author="Test Author",
             isbn="0142000272",  # ISBN10 format
+            isbn13="9780142000274",  # ISBN13 format
+            asin="B001234567",  # ASIN format
             my_rating=4,
             date_added="2023-01-01",
             read_count=2,
@@ -219,6 +222,8 @@ class TestBookRecord:
             'Title': 'Test Book',
             'Author': 'Test Author',
             'ISBN': '0142000272',
+            'ISBN13': '9780142000274',
+            'ASIN': 'B001234567',
             'My Rating': 4,
             'Date Added': '2023-01-01',
             'Read Count': 2,

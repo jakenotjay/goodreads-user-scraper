@@ -16,12 +16,14 @@ class BookRecord(BaseModel):
     title: str = Field(..., description="The book title")
     author: str = Field(..., description="The primary author name")
     isbn: Optional[str] = Field(None, description="ISBN number (ISBN10 format only)")
+    isbn13: Optional[str] = Field(None, description="ISBN13 number")
+    asin: Optional[str] = Field(None, description="Amazon Standard Identification Number")
     my_rating: Optional[int] = Field(None, ge=0, le=5, description="User's rating (0-5, where 0 means unrated)")
     read_count: int = Field(default=0, ge=0, description="Number of times the book has been read")
     my_review: Optional[str] = Field(None, description="User's review text")
     bookshelves: List[str] = Field(default_factory=list, description="List of bookshelf names")
     date_added: Optional[str] = Field(None, description="Date when book was added to library")
-    date_read: Optional[str] = Field(None, description="Date when book was last read")
+    date_read: Optional[str] = Field(None, description="Date when book was last finished")
 
     @field_validator('isbn')
     @classmethod
@@ -130,6 +132,8 @@ class BookRecord(BaseModel):
             'Title': self.title,
             'Author': self.author,
             'ISBN': self.isbn if self.isbn else '',
+            'ISBN13': self.isbn13 if self.isbn13 else '',
+            'ASIN': self.asin if self.asin else '',
             'My Rating': self.my_rating or 0,
             'Date Added': self.date_added or '',
             'Read Count': self.read_count,
@@ -145,6 +149,8 @@ class BookRecord(BaseModel):
             title=row.get('Title', ''),
             author=row.get('Author', ''),
             isbn=row.get('ISBN'),
+            isbn13=row.get('ISBN13'),
+            asin=row.get('ASIN'),
             my_rating=row.get('My Rating') if row.get('My Rating') not in [None, '', '0'] else None,
             date_added=row.get('Date Added'),
             read_count=int(row.get('Read Count', 0)),
