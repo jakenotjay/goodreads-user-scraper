@@ -96,14 +96,6 @@ The scraper generates a CSV file with the following columns:
 | `Bookshelves` | Comma-separated list of shelf names |
 | `Date Read` | Date book was finished (if available) |
 
-### Sample Output
-
-```csv
-Title,Author,ISBN,ISBN13,ASIN,My Rating,Date Added,Read Count,My Review,Bookshelves,Date Read
-"Harry Potter and the Philosopher's Stone","Rowling, J.K.",0747532699,9780747532699,0747532699,5,"Jul 15, 2020",1,"Amazing start to the series","fantasy, fiction","Jul 20, 2020"
-"The Hobbit","Tolkien, J.R.R.",0547928246,9780547928241,B0079KT81G,4,"Mar 10, 2021",2,"Classic adventure","fantasy, classics","Mar 25, 2021"
-```
-
 ## Rate Limiting & Best Practices
 
 - **Default delay**: 1 second between requests (configurable with `--delay`)
