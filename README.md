@@ -2,7 +2,7 @@
 
 A robust tool to scrape a user's profile page from Goodreads and export their library to CSV format. This tool is particularly useful for users who have been locked out of their accounts or forgotten their passwords and need to recover their book data. 
 
-In my case the email I had used to sign up was an education email and I could no longer access the account.
+Almost entirely vibe coded in cursor, so don't use for anything too important! My use case was that the email I had used to sign up was an education email and I could no longer access the account.
 
 ## Features
 
